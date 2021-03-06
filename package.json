@@ -1,5 +1,5 @@
 {
-  "name": "my-muscles",
+  "name": "phonebook",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -12,6 +12,7 @@
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
+    "pg": "^8.5.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.3"
@@ -19,7 +20,7 @@
   "scripts": {
     "client:dev": "react-scripts start",
     "server:dev": "nodemon index.js",
-    "db:build": "./db/init_db",
+    "db:build": "node ./db/init_db",
     "build": "react-scripts build",
     "start": "node index.js"
   },
