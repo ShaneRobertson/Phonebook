@@ -19,6 +19,7 @@ server.use((req, res, next) => {
   });
   
   server.use((error, req, res, next) => {
+    console.log('Inside the main index.js "the server"!!!!')
     res.send(error);
   });
 
