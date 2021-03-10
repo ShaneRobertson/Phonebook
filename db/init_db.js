@@ -28,6 +28,7 @@ async function buildDatabase() {
                 email VARCHAR(60),
                 business BOOLEAN DEFAULT false,
                 image TEXT,
+                user_id INTEGER REFERENCES users(user_id),
                 UNIQUE(phone_number)
             );
 
@@ -64,7 +65,8 @@ async function initialData() {
       "878-729-9890",
       "zdillway0@mtv.com",
       false,
-      "http://dummyimage.com/121x115.bmp/dddddd/000000"
+      "http://dummyimage.com/121x115.bmp/dddddd/000000",
+      1
     );
     const contact2 = await insertContact(
       "Trefor",
@@ -72,7 +74,8 @@ async function initialData() {
       "169-430-6137",
       "tgibbs1@networkadvertising.org",
       false,
-      "http://dummyimage.com/184x125.bmp/ff4444/ffffff"
+      "http://dummyimage.com/184x125.bmp/ff4444/ffffff",
+      1
     );
     const contact3 = await insertContact(
       "Dyann",
@@ -80,7 +83,8 @@ async function initialData() {
       "879-920-6765",
       "damber2@godaddy.com",
       false,
-      "http://dummyimage.com/226x160.jpg/cc0000/ffffff"
+      "http://dummyimage.com/226x160.jpg/cc0000/ffffff",
+      1
     );
     const contact4 = await insertContact(
       "Starr",
@@ -88,7 +92,8 @@ async function initialData() {
       "212-167-1584",
       "sjozef3@weibo.com",
       false,
-      "http://dummyimage.com/227x143.png/ff4444/ffffff"
+      "http://dummyimage.com/227x143.png/ff4444/ffffff",
+      1
     );
     const contact5 = await insertContact(
       "Elmer",
@@ -96,7 +101,8 @@ async function initialData() {
       "418-519-6195",
       "emassey4@zdnet.com",
       false,
-      "http://dummyimage.com/146x135.jpg/dddddd/000000"
+      "http://dummyimage.com/146x135.jpg/dddddd/000000",
+      1
     );
     const contact6 = await insertContact(
       "Pasquale",
@@ -104,7 +110,8 @@ async function initialData() {
       "165-688-2965",
       "pmcgraffin5@arizona.edu",
       false,
-      "http://dummyimage.com/156x231.png/5fa2dd/ffffff"
+      "http://dummyimage.com/156x231.png/5fa2dd/ffffff",
+      1
     );
     const contact7 = await insertContact(
       "Zach",
@@ -112,7 +119,8 @@ async function initialData() {
       "964-388-0978",
       "zramstead6@washington.edu",
       true,
-      "http://dummyimage.com/234x159.bmp/dddddd/000000"
+      "http://dummyimage.com/234x159.bmp/dddddd/000000",
+      2
     );
     const contact8 = await insertContact(
       "Luciano",
@@ -120,7 +128,8 @@ async function initialData() {
       "518-122-3263",
       "lcolaton7@independent.co.uk",
       true,
-      "http://dummyimage.com/168x197.bmp/dddddd/000000"
+      "http://dummyimage.com/168x197.bmp/dddddd/000000",
+      2
     );
     const contact9 = await insertContact(
       "Dawna",
@@ -128,7 +137,8 @@ async function initialData() {
       "846-425-3577",
       "dscarborough8@feedburner.com",
       false,
-      "http://dummyimage.com/212x146.jpg/dddddd/000000"
+      "http://dummyimage.com/212x146.jpg/dddddd/000000",
+      2
     );
     const contact10 = await insertContact(
       "Angela",
@@ -136,7 +146,8 @@ async function initialData() {
       "327-224-0543",
       "acaress9@mapquest.com",
       false,
-      "http://dummyimage.com/186x211.bmp/dddddd/000000"
+      "http://dummyimage.com/186x211.bmp/dddddd/000000",
+      2
     );
     console.log("Finished createing contacts");
     console.log("Finished creating initial data");

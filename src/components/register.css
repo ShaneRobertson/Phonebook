@@ -1,0 +1,10 @@
+
+#register-login-button {
+  color: blue;
+  text-decoration: underline;
+}
+
+#register-login-button:hover {
+  color: rgb(57, 199, 22);
+  cursor: pointer;
+}

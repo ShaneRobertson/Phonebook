@@ -23,13 +23,13 @@ async function insertUser(username, password, email){
     }
 }
 
-async function insertContact(first_name, last_name, phone_number, email, business, image){
+async function insertContact(first_name, last_name, phone_number, email, business, image, user_id){
     try{
         const {rows} = await client.query(`
-            INSERT INTO contact (first_name, last_name, phone_number, email, business, image)
-            VALUES($1, $2, $3, $4, $5, $6)
+            INSERT INTO contact (first_name, last_name, phone_number, email, business, image, user_id)
+            VALUES($1, $2, $3, $4, $5, $6, $7)
             RETURNING *;
-        `, [first_name, last_name, phone_number, email, business, image])
+        `, [first_name, last_name, phone_number, email, business, image, user_id])
         console.log('insertContact rows: ', rows)
         return rows
     } catch (error) {
@@ -37,8 +37,38 @@ async function insertContact(first_name, last_name, phone_number, email, busines
     }
 }
 
+async function getUser(username){
+    try {
+        console.log('the username: ', username)
+        const {rows: [user]} = await client.query(`
+            SELECT * FROM users
+            WHERE username=$1;
+        `, [username])
+        console.log('the user in the db: ', user)
+        return user
+    } catch (error) {
+        throw error
+    }
+}
+
+async function getContactById(id){
+    console.log('the id in the db: ', id)
+    try {
+        const {rows} = await client.query(`
+            SELECT * FROM contact
+            WHERE user_id=$1;
+        `, [id])
+        console.log('the contacts/rows: ', rows)
+        return rows
+    } catch(error){
+        throw error
+    }
+}
+
 module.exports = {
     client,
     insertUser,
-    insertContact
+    insertContact,
+    getUser,
+    getContactById
 };
