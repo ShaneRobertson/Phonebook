@@ -1,11 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import { Route } from "react-router-dom";
-//import ContactList from "./ContactList.js";
-//import LandingPage from "./LandingPage.js";
+import ContactList from "./ContactList.js";
+import DisplayContact from "./DisplayContact.js";
 import Login from "./Login.js";
 import Register from "./Register.js";
 
 function App() {
+  const [contacts, setContacts] = useState([])
   return (
     <div className="app">
       <div className='landingPage'>
@@ -13,7 +14,11 @@ function App() {
         <Register />
       </Route>
       <Route path="/login">
-        <Login />
+        <Login setContacts={setContacts}/>
+      </Route>
+      <Route path="/contacts">
+        <ContactList contacts={contacts}/>
+        <DisplayContact />
       </Route>
       </div>
    

@@ -40,13 +40,27 @@ async function insertContact(first_name, last_name, phone_number, email, busines
 async function getUser(username){
     try {
         console.log('the username: ', username)
-        const {rows} = await client.query(`
+        const {rows: [user]} = await client.query(`
             SELECT * FROM users
             WHERE username=$1;
         `, [username])
-        console.log('the rows: ', rows)
-        return rows
+        console.log('the user in the db: ', user)
+        return user
     } catch (error) {
+        throw error
+    }
+}
+
+async function getContactById(id){
+    console.log('the id in the db: ', id)
+    try {
+        const {rows} = await client.query(`
+            SELECT * FROM contact
+            WHERE user_id=$1;
+        `, [id])
+        console.log('the contacts/rows: ', rows)
+        return rows
+    } catch(error){
         throw error
     }
 }
@@ -55,5 +69,6 @@ module.exports = {
     client,
     insertUser,
     insertContact,
-    getUser
+    getUser,
+    getContactById
 };
