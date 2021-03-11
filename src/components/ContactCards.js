@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Accordion, Card } from "react-bootstrap";
-import { ChevronDoubleDown, Telephone, Envelope } from "react-bootstrap-icons";
+import { ChevronDoubleDown, Telephone, Envelope, Star, StarFill } from "react-bootstrap-icons";
 import "./ContactCards.css";
 import CustomToggle from "./CustomToggle.js";
-import Radium from 'radium'
+
 
 export default function ContactCards({
   contact_id,
@@ -20,28 +20,23 @@ export default function ContactCards({
       <Accordion>
         <Card className="contact-container">
           <Card.Header className="contact-header">
-           
-              <img src={image} id="contact-image" alt="Your contact" />
-
+            <img src={image} id="contact-image" alt="Your contact" />
             <span>
               {first_name} {last_name}
             </span>
             <CustomToggle eventKey="0">
               {" "}
-
-              <ChevronDoubleDown              
+              <ChevronDoubleDown
                 style={{
                   transform: rotateIcon ? "rotate(180deg)" : "",
-                  transition: ".5s"
+                  transition: ".5s",
                 }}
                 onClick={() => {
                   setRotateIcon(!rotateIcon);
                 }}
-               
               />
             </CustomToggle>
           </Card.Header>
-
           <Accordion.Collapse eventKey="0">
             <Card.Body>
               <Card.Text>

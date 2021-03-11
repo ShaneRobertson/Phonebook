@@ -1,19 +1,49 @@
 .contact-container {
-    width: 20rem;
+  width: 20rem;
+  margin: .5rem auto;
 }
 
 .contact-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #contact-image {
-    width: 2.5rem;
-    height: 2.5rem;
-    object-fit: cover;
-    border-radius: 50%;
-    box-shadow: 2px 2px 4px black;
+  width: 2.5rem;
+  height: 2.5rem;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 2px 2px 4px black;
 }
 
+#contact-filter {
+  display: flex;
+  list-style-type: none;
+  margin: 1rem auto;
+  padding: 0 4rem;
+}
 
+#contact-filter li {
+  padding: 0.2rem 1rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: rgb(92, 95, 92);
+  background: linear-gradient(180deg, #3f87a6, #ebf8e1, #3f87a6);
+}
+#contact-filter li:hover {
+  cursor: pointer;
+}
+
+#contact-filter li:first-child {
+  margin-left: 0.5rem;
+  border-top-left-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+  border-right: 1px solid wheat;
+}
+
+#contact-filter li:last-child {
+  border-left: 1px solid wheat;
+  border-top-right-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+}

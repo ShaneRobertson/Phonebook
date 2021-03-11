@@ -3,7 +3,7 @@ const apiRouter = require("express").Router();
 const jwt = require("jsonwebtoken");
 const { privateKey } = process.env;
 
-const { getUser, getContactById} = require("../db");
+const { getUser, getContactById, getPersonalContacts, getBusinessContacts } = require("../db");
 
 apiRouter.post("/login", async (req, res, next) => {
   const { username, password } = req.body;
@@ -24,26 +24,44 @@ apiRouter.post("/login", async (req, res, next) => {
           }
         });
       } else {
-          res.send({passwordError: 'Invalid password error'})
+        res.send({ passwordError: "Invalid password error" });
       }
     } else {
-      res.send({usernameError: "Invalid username error"
-    });
+      res.send({ usernameError: "Invalid username error" });
     }
   } catch (error) {
     console.log("routes error: ", error);
   }
 });
 
-apiRouter.get('/contacts/:id', async (req, res, next) => {
-    const {id} = req.params
-    console.log('the id in the routes: ', id)
-try{
-    const contacts = await getContactById(id)
-    res.send(contacts)
-} catch (error){
-    throw error
-}
-})
+apiRouter.get("/contacts/:id", async (req, res, next) => {
+  const { id } = req.params;
+  console.log("the id in the routes: ", id);
+  try {
+    const contacts = await getContactById(id);
+    res.send(contacts);
+  } catch (error) {
+    throw error;
+  }
+});
 
+apiRouter.get("/personal/:id", async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const personalContacts = await getPersonalContacts(id);
+    res.send(personalContacts);
+  } catch (error) {
+    throw error;
+  }
+});
+
+apiRouter.get("/business/:id", async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const businessContacts = await getBusinessContacts(id);
+    res.send(businessContacts);
+  } catch (error) {
+    throw error;
+  }
+});
 module.exports = apiRouter;
