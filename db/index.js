@@ -65,10 +65,38 @@ async function getContactById(id){
     }
 }
 
+async function getPersonalContacts(id){
+    try{
+        const {rows} = await client.query(`
+            SELECT * FROM contact
+            WHERE user_id=$1 AND business=false;
+        `, [id])
+        console.log('the rows/personalContacts: ', rows)
+        return rows
+    } catch (error) {
+        throw error
+    }
+}
+
+async function getBusinessContacts(id){
+    try{
+        const {rows} = await client.query(`
+            SELECT * FROM contact
+            WHERE user_id=$1 AND business=true;
+        `, [id])
+        console.log('the rows/businessContacts: ', rows)
+        return rows
+    } catch (error) {
+        throw error
+    }
+}
+
 module.exports = {
     client,
     insertUser,
     insertContact,
     getUser,
-    getContactById
+    getContactById,
+    getPersonalContacts,
+    getBusinessContacts
 };

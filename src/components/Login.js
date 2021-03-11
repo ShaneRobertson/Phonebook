@@ -5,7 +5,7 @@ import {useHistory} from 'react-router-dom'
 import {getContacts} from '../api/index.js'
 import "./login.css";
 
-export default function Login({setContacts}) {
+export default function Login({setContacts, setUser_id}) {
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
@@ -31,7 +31,6 @@ export default function Login({setContacts}) {
               credentials.username,
               credentials.password
             );
-            console.log('th e userobj: ', userObj)
             setCredentials({ username: "", password: "" });
             console.log('the userObj: ', userObj)
             if (userObj.usernameError) {
@@ -41,10 +40,12 @@ export default function Login({setContacts}) {
               setPasswordError(true);
             }
             if(userObj.token){
-              localStorage.setItem('token', userObj.token)
+              localStorage.setItem('token', userObj.token)          
               const allContacts = await getContacts(userObj.user.user_id)
               localStorage.setItem('contacts', JSON.stringify(allContacts))
               setContacts(allContacts)
+              setUser_id(userObj.user.user_id)
+             
               console.log('all the contacts: ', allContacts)
               history.push('/contacts')
             }
