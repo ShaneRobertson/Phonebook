@@ -43,6 +43,7 @@ export default function Login({setContacts}) {
             if(userObj.token){
               localStorage.setItem('token', userObj.token)
               const allContacts = await getContacts(userObj.user.user_id)
+              localStorage.setItem('contacts', JSON.stringify(allContacts))
               setContacts(allContacts)
               console.log('all the contacts: ', allContacts)
               history.push('/contacts')

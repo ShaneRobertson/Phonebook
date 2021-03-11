@@ -82,7 +82,7 @@ async function initialData() {
       "Amber",
       "879-920-6765",
       "damber2@godaddy.com",
-      false,
+      true,
       "http://dummyimage.com/226x160.jpg/cc0000/ffffff",
       1
     );
@@ -91,7 +91,7 @@ async function initialData() {
       "Jozef",
       "212-167-1584",
       "sjozef3@weibo.com",
-      false,
+      true,
       "http://dummyimage.com/227x143.png/ff4444/ffffff",
       1
     );

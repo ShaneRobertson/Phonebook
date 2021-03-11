@@ -16,9 +16,10 @@ function App() {
       <Route path="/login">
         <Login setContacts={setContacts}/>
       </Route>
+      </div>
+      <div className='contacts-list'>
       <Route path="/contacts">
-        <ContactList contacts={contacts}/>
-        <DisplayContact />
+        <ContactList contacts={contacts}/>   
       </Route>
       </div>
    
