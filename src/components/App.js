@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { Route } from "react-router-dom";
 import ContactList from "./ContactList.js";
-import DisplayContact from "./DisplayContact.js";
+//import DisplayContact from "./DisplayContact.js";
 import Login from "./Login.js";
 import Register from "./Register.js";
 import ContactFilter from "./ContactFilter.js"
@@ -11,18 +11,16 @@ function App() {
   const [user_id, setUser_id] = useState('')
   return (
     <div className="app">
-      <div className='landingPage'>
       <Route exact path="/">
         <Register />
       </Route>
       <Route path="/login">
         <Login setContacts={setContacts} setUser_id={setUser_id}/>
       </Route>
-      </div>
       <div className='contacts-list'>
       <Route path="/contacts">
         <ContactFilter contacts={contacts} setContacts={setContacts} user_id={user_id}/>
-        <ContactList contacts={contacts}/>   
+        <ContactList contacts={contacts} setContacts={setContacts}/>   
       </Route>
       </div>
    

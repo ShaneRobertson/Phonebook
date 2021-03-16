@@ -3,7 +3,14 @@ const apiRouter = require("express").Router();
 const jwt = require("jsonwebtoken");
 const { privateKey } = process.env;
 
-const { getUser, getContactById, getPersonalContacts, getBusinessContacts } = require("../db");
+const {
+  getUser,
+  getContactById,
+  getPersonalContacts,
+  getBusinessContacts,
+  updateContact,
+} = require("../db");
+
 
 apiRouter.post("/login", async (req, res, next) => {
   const { username, password } = req.body;
@@ -60,6 +67,54 @@ apiRouter.get("/business/:id", async (req, res, next) => {
   try {
     const businessContacts = await getBusinessContacts(id);
     res.send(businessContacts);
+  } catch (error) {
+    throw error;
+  }
+});
+
+apiRouter.patch("/update", async (req, res, next) => {
+  const {
+    contact_id,
+    user_id,
+    first_name,
+    last_name,
+    phone_number,
+    email,
+    business,
+    image,
+    is_favorite,
+  } = req.body;
+
+  const updateFields = {};
+  updateFields.contact_id = contact_id
+  
+  updateFields.is_favorite = is_favorite;
+
+  if (first_name) {
+    updateFields.first_name = first_name;
+  }
+  if (last_name) {
+    updateFields.last_name = last_name;
+  }
+  if (phone_number) {
+    updateFields.phone_number = phone_number;
+  }
+  if (email) {
+    updateFields.email = email;
+  }
+  if (business) {
+    updateFields.business = business;
+  }
+  if (image) {
+    updateFields.image = image;
+  }
+
+    
+
+  try {
+    const updatedContact = await updateContact(contact_id, user_id, updateFields);
+    console.log("the updatedContact: ", updatedContact);
+    res.send(updatedContact);
   } catch (error) {
     throw error;
   }

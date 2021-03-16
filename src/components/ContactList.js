@@ -1,7 +1,7 @@
 import React from "react";
 import ContactCards from "./ContactCards";
 
-export default function ContactList({ contacts }) {
+export default function ContactList({ contacts, setContacts }) {
   return (
     <>
       {contacts.map((contact) => {
@@ -12,6 +12,8 @@ export default function ContactList({ contacts }) {
           phone_number,
           email,
           image,
+          user_id,
+          is_favorite
         } = contact;
         return (
           <ContactCards
@@ -21,6 +23,11 @@ export default function ContactList({ contacts }) {
             phone_number={phone_number}
             email={email}
             image={image}
+            user_id={user_id}
+            contact_id={contact_id}
+            is_favorite={is_favorite}
+            setContacts={setContacts}
+            contacts={contacts}
           />
         );
       })}

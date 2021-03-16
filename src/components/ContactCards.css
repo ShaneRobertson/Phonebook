@@ -1,6 +1,10 @@
 .contact-container {
-  width: 20rem;
+  width: 21rem;
+  border-radius: 2rem;
   margin: .5rem auto;
+  box-shadow: 3px 3px 8px black;
+  background-color: rgba(204, 200, 200, 0.8);
+
 }
 
 .contact-header {
@@ -17,33 +21,45 @@
   box-shadow: 2px 2px 4px black;
 }
 
-#contact-filter {
+/* SEARCHBAR */
+#contact-filter-search {
   display: flex;
-  list-style-type: none;
+  align-items: center;
+  background-color:rgba(255, 255, 255, 0.5);
+  width: 21rem;
+  height: 2rem;
   margin: 1rem auto;
-  padding: 0 4rem;
+  border-radius: 1rem;
 }
 
-#contact-filter li {
-  padding: 0.2rem 1rem;
-  font-size: 0.9rem;
-  font-weight: bold;
-  color: rgb(92, 95, 92);
-  background: linear-gradient(180deg, #3f87a6, #ebf8e1, #3f87a6);
+#contact-search-input {
+  background-color:rgba(204, 200, 200, 0.5);
+  border-radius: 1rem;
+  border: none;
+  margin-right: 2rem;
+  padding-left: .5rem;
 }
-#contact-filter li:hover {
+
+#contact-search-icon {
+  margin: 0;
+  font-size: 4rem;
+  height: 1rem;
+
+}
+
+#contact-person-icon{
+  font-size: 1.6rem;
+  margin-right: .2rem;
+}
+
+#contact-dots-icon {
+  font-size: 1.4rem;
+}
+
+#contact-dots-icon:hover {
   cursor: pointer;
 }
 
-#contact-filter li:first-child {
-  margin-left: 0.5rem;
-  border-top-left-radius: 0.3rem;
-  border-bottom-left-radius: 0.3rem;
-  border-right: 1px solid wheat;
-}
 
-#contact-filter li:last-child {
-  border-left: 1px solid wheat;
-  border-top-right-radius: 0.3rem;
-  border-bottom-right-radius: 0.3rem;
-}
+
+
