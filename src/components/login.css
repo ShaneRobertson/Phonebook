@@ -1,4 +1,57 @@
+.login-container h2{
+    font-size: 2.5rem;
+    margin: 1rem 2rem;
+    text-decoration: underline orange;
+}
 
+.login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30rem;
+    height: 15rem;
+    border: 1px solid orange;
+    border-radius: .3rem;
+    background-color: rgba(255, 255, 255, 0.4)
+}
 
+.login-input-container {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.login-icon {
+    transform: scale(1.5);
+    margin: .5rem .1rem 0 .3rem;
+}
+
+.login-input-container input {
+    border: none;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: .3rem;
+    color: white;
+}
+
+.login-input-container input::placeholder {
+    color: rgb(238, 231, 231);
+}
+
+.login-container button {
+    display: block;
+    margin: .5rem auto;
+    height: 3rem;
+    font-size: 2rem;
+    line-height: 2rem;
+    width: 80%;
+    border: 1px solid orange;
+    border-radius: .3rem;
+    background-color:rgba(0, 0, 0, 0.4)
+}
+.login-container button:hover {
+background-color:rgba(255, 165, 0, 0.6);
+transition: 1s;
+}
 
 

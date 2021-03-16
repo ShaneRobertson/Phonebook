@@ -29,11 +29,11 @@ async function buildDatabase() {
                 business BOOLEAN DEFAULT false,
                 image TEXT,
                 user_id INTEGER REFERENCES users(user_id),
+                is_favorite BOOLEAN DEFAULT false,
                 UNIQUE(phone_number)
             );
 
             CREATE TABLE favorites(
-                id SERIAL PRIMARY KEY,
                 user_id INTEGER REFERENCES users(user_id),
                 contact_id INTEGER REFERENCES contact(contact_id)
             );
@@ -66,7 +66,8 @@ async function initialData() {
       "zdillway0@mtv.com",
       false,
       "http://dummyimage.com/121x115.bmp/dddddd/000000",
-      1
+      1,
+      true
     );
     const contact2 = await insertContact(
       "Trefor",
@@ -84,7 +85,8 @@ async function initialData() {
       "damber2@godaddy.com",
       true,
       "http://dummyimage.com/226x160.jpg/cc0000/ffffff",
-      1
+      1,
+      true
     );
     const contact4 = await insertContact(
       "Starr",
@@ -129,7 +131,8 @@ async function initialData() {
       "lcolaton7@independent.co.uk",
       true,
       "http://dummyimage.com/168x197.bmp/dddddd/000000",
-      2
+      2,
+      true
     );
     const contact9 = await insertContact(
       "Dawna",
